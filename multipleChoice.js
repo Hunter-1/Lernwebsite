@@ -16,20 +16,20 @@ class Choices extends HTMLElement {
 customElements.define('choices-component', Choices);
 
 
-    function displayAnswer() {
-        const elements = document.getElementsByClassName('option');
-        Array.from(elements).forEach(loopfunction);
+function displayAnswer() {
+    const elements = document.getElementsByClassName('option');
+    Array.from(elements).forEach(loopfunction);
+}
+function loopfunction(item){
+    const answer = item.id + "block";
+    const result = item.id + "result";
+    if (item.checked){
+        showAnswer(answer,result,item.value)
     }
-    function loopfunction(item){
-        const answer = item.id + "block";
-        const result = item.id + "result";
-        if (item.checked){
-            showAnswer(answer,result,item.value)
-        }
-        else {
-            clearAnswer(answer,result)
-        }
+    else {
+        clearAnswer(answer,result)
     }
+}
 
 
 function showAnswer(answer,result,correct){
