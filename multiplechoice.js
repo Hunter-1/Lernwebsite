@@ -1,7 +1,7 @@
 class Choices extends HTMLElement {
     connectedCallback() {
-        var correct = this.attributes.correct.value;
-        var answer = this.attributes.answer.value;
+        const correct = this.attributes.correct.value;
+        const answer = this.attributes.answer.value;
         console.log(typeof correct);
 
         this.innerHTML = `
@@ -17,12 +17,17 @@ customElements.define('choices-component', Choices);
 
 
     function displayAnswer() {
-    var elements = document.getElementsByClassName('option');
-    Array.from(elements).forEach(loopfunction);
+        const elements = document.getElementsByClassName('option');
+        Array.from(elements).forEach(loopfunction);
     }
     function loopfunction(item){
+        const answer = item.id + "block";
+        const result = item.id + "result";
         if (item.checked){
-            showAnswer(item.id+"block",item.id+"result",item.value)
+            showAnswer(answer,result,item.value)
+        }
+        else {
+            clearAnswer(answer,result)
         }
     }
 
@@ -37,4 +42,9 @@ function showAnswer(answer,result,correct){
         document.getElementById(result).style.color = 'green';
         document.getElementById(result).innerHTML = 'Correct!'
     }
+}
+function clearAnswer(answer,result){
+    document.getElementById(answer).style.border = '0px';
+    document.getElementById(result).style.color = 'white';
+    document.getElementById(result).innerHTML = ''
 }
