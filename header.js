@@ -29,9 +29,9 @@ headerTemplate.innerHTML = `
   <header>
     <nav>
       <ul>
-        <li><a href="frw.html">Frw</a></li>
+        <li><a href="html/frw/frw.html">Frw</a></li>
         <li><a href="index.html">Home</a></li>
-        <li><a href="wr.html">Wr</a></li>
+        <li><a href="html/wr/wr.html">Wr</a></li>
       </ul>
     </nav>
   </header>
