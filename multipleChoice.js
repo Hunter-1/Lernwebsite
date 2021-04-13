@@ -2,12 +2,12 @@ class Choices extends HTMLElement {
     connectedCallback() {
         const correct = this.attributes.correct.value;
         const answer = this.attributes.answer.value;
-        console.log(typeof correct);
+        const aufgabe = this.attributes.aufgabe.value;
 
         this.innerHTML = `
     <div id='${answer}block' style='padding: 10px;'>
         <label for='option' style=' padding: 5px; font-size: 2.5rem;'>
-            <input type='radio' name='option' id="${answer}" value='${correct}' class='option' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
+            <input type='radio' name='option' id="${answer}" value='${correct}' class='${aufgabe}' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' />
             ${answer}</label>
         <span id='${answer}result'></span>
     </div>`;
@@ -16,8 +16,8 @@ class Choices extends HTMLElement {
 customElements.define('choices-component', Choices);
 
 
-function displayAnswer() {
-    const elements = document.getElementsByClassName('option');
+function displayAnswerChoice(aufgabe) {
+    const elements = document.getElementsByClassName(aufgabe);
     Array.from(elements).forEach(loopfunction);
 }
 function loopfunction(item){
